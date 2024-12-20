@@ -1,23 +1,27 @@
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
-import Main from "../components/Main";
+import LeftAside from "../components/layout-main/LeftAside";
 import Navbar from "../components/Navbar";
 
 export default function HomeLayoutes() {
   return (
     <div className="font-poppins">
-        <header>
-            <Header></Header>
-            <section className="w-11/12 mx-auto">
-                <LatestNews></LatestNews>
-            </section>
-        </header>
-        <nav>
-           <Navbar></Navbar>
-        </nav>
-        <main>
-            <Main> </Main>
-        </main>
+      <header>
+        <Header></Header>
+        <section className="w-11/12 mx-auto">
+          <LatestNews></LatestNews>
+        </section>
+      </header>
+      <nav>
+        <Navbar></Navbar>
+      </nav>
+      <main className="w-11/12 mx-auto py-2 md:grid grid-cols-12">
+        <aside className="left col-span-3">
+          <LeftAside></LeftAside>
+        </aside>
+        <section className="col-span-6">its sections</section>
+        <aside className="col-span-3">right aside</aside>
+      </main>
     </div>
-  )
+  );
 }
