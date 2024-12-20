@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
 import LeftAside from "../components/layout-main/LeftAside";
+import RightAside from "../components/layout-main/RightAside";
 import Navbar from "../components/Navbar";
 
 export default function HomeLayoutes() {
@@ -20,7 +21,9 @@ export default function HomeLayoutes() {
           <LeftAside></LeftAside>
         </aside>
         <section className="col-span-6">its sections</section>
-        <aside className="col-span-3">right aside</aside>
+        <aside className="col-span-3">
+          <RightAside></RightAside>
+        </aside>
       </main>
     </div>
   );

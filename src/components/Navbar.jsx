@@ -12,7 +12,7 @@ export default function Navbar() {
       </div>
       <div className="flex gap-5 items-center">
         <img src={userLogo} alt="  " />
-        <button className="btn btn-ghost">Login</button>
+        <button className="btn btn-neutral">Login</button>
       </div>
     </div>
   );
