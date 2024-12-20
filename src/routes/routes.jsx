@@ -4,7 +4,13 @@ import HomeLayoutes from "../layouts/HomeLayoutes"
 const routes = createBrowserRouter([
   {
     path: '/',
-    element: <HomeLayoutes></HomeLayoutes>
+    element: <HomeLayoutes></HomeLayoutes>,
+    children:[
+      {
+        path:'category/:id',
+        element: <h3>I am from category</h3>
+      }
+    ] 
   },
   {
     path: 'news',

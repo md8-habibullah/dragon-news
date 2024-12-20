@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
 import LeftAside from "../components/layout-main/LeftAside";
@@ -20,7 +21,9 @@ export default function HomeLayoutes() {
         <aside className="left col-span-3">
           <LeftAside></LeftAside>
         </aside>
-        <section className="col-span-6">its sections</section>
+        <section className="col-span-6">
+          <Outlet></Outlet>
+        </section>
         <aside className="col-span-3">
           <RightAside></RightAside>
         </aside>
