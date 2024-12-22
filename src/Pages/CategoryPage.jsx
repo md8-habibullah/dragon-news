@@ -1,30 +1,32 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import SingleNews from "./SingleNews";
 
 export default function CategoryPage() {
   // const data = useLoaderData();
   const params = useParams();
   // console.log(data);
 
+  // state for news
+  const [newsdata, setnewsdata] = useState([]);
+
   useEffect(() => {
     fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`)
       .then((res) => res.json())
-      .then((data) => console.log(data.data));
+      .then((data) => {
+        console.log(data);
+        setnewsdata(data.data);
+      });
   }, [params]);
 
-  useEffect(() => {
-    fetch("https://openapi.programming-hero.com/api/news/categories")
-      .then((res) => res.json())
-      .then((data) => console.log(data.data.news_category));
-  }, []);
-
   return (
-    <div className="text-xl">
-      Total News this 
-      xyz(i want to show the name of this category)
-       page in <span className=" px-2 bg-base-300">{params.id}</span>
-      
+    <div>
+      <h2 className="text-xl">this is {params.id} lineee</h2>
+      <div>
+        {newsdata.map((news, indx) => (
+          <SingleNews key={indx} news={news}></SingleNews>
+        ))}
+      </div>
     </div>
   );
 }
