@@ -1,12 +1,30 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 
 export default function CategoryPage() {
-  const { data } = useLoaderData();
+  // const data = useLoaderData();
   const params = useParams();
-  console.log(data);
+  // console.log(data);
+
+  useEffect(() => {
+    fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`)
+      .then((res) => res.json())
+      .then((data) => console.log(data.data));
+  }, [params]);
+
+  useEffect(() => {
+    fetch("https://openapi.programming-hero.com/api/news/categories")
+      .then((res) => res.json())
+      .then((data) => console.log(data.data.news_category));
+  }, []);
+
   return (
-    <div className="text-5xl">
-      I am from page.<span className=" pl-10 bg-green-300">__{params.id}__</span>
+    <div className="text-xl">
+      Total News this 
+      xyz(i want to show the name of this category)
+       page in <span className=" px-2 bg-base-300">{params.id}</span>
+      
     </div>
   );
 }
