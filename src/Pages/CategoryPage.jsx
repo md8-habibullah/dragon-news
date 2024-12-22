@@ -21,10 +21,9 @@ export default function CategoryPage() {
 
   return (
     <div>
-      <h2 className="text-xl">this is {params.id} lineee</h2>
       <div>
-        {newsdata.map((news, indx) => (
-          <SingleNews key={indx} news={news}></SingleNews>
+        {newsdata.map((news) => (
+          <SingleNews key={news._id} news={news}></SingleNews>
         ))}
       </div>
     </div>
